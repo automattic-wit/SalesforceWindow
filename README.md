@@ -1,4 +1,4 @@
-# App name
+# SalesforceWindow
 
 [brief description of the app]
 

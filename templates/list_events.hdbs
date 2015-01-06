@@ -1,0 +1,50 @@
+<div>
+    {{#if ajaxResponse.totalSize}}
+        {{#each ajaxResponse.records}}
+            <div class="mjw-grouping">
+                <div class="mjw-row mjw-title mjw-blue-emphasis"><i class="fa fa-institution"></i> {{this.Organization_Name__r.Name}}</div>
+                <div class="mjw-row mjw-clearfix">
+                    <div class="mjw-float-left" >
+                        <a href="#" class="set-bpe" data-bpe="{{this.Event_Code__c}}" data-stringified="{{this.stringified}}"><i class="fa fa-bullseye"></i> <u>Set</u>: {{this.Event_Code__c}}</a>
+                    </div>
+                    <div class="mjw-float-right"> <span class="mjw-format-neat-date" data-date-string="{{this.Event_Date__c}}">formatting date...</span> </div>
+                </div>
+                <div class="mjw-row mjw-clearfix">
+                    <div class="mjw-float-left" >{{this.Time_Zone__c}} Time</div>
+                    <div class="mjw-float-right">{{#if this.Event_City__c}}{{this.Event_City__c}}{{else}}[No City Found]{{/if}}</div>
+                </div>
+                <div class="mjw-row mjw-clearfix">
+                    <div class="mjw-float-left" ><i class="fa mjw-format-set-icon" data-icon-associate="{{this.Event_Type__c}}"></i> {{this.Event_Type__c}}</div>
+                    <div class="mjw-float-right">{{this.Name}}</div>
+                </div>
+                <div class="mjw-row mjw-clearfix">
+                    <div class="mjw-float-left"><a target="_blank" href="http://bidpal.net/{{this.FriendlyURL__c}}">bidpal.net/<span class="mjw-blue-emphasis">{{this.FriendlyURL__c}}</span></a></div>
+                    <div class="mjw-float-right">{{this.Planner_Admin__r.Name}} <small>[Admin]</small></div>
+                </div>
+            </div>
+            <hr />
+        {{/each}}
+        <!-- 
+        <table class="table">
+                <tr>
+                    <th> Date         </th>
+                    <th> Name         </th>
+                    <th> Type         </th>
+                </tr>
+            {{#each ajaxResponse.records}}
+                <tr>
+                    <td>
+                        <span class="pull-left" > {{this.Event_Date__c}}                 </span>
+                        <span class="pull-right"> {{this.Days_Until_Event__c}} days away </span>
+                    </td>
+                    <td> {{this.Name}}          </td>
+                    <td> {{this.Event_Type__c}} </td>
+                </tr>
+            {{/each}}
+        </table>
+        -->
+        
+    {{else}}
+        <div class="alert alert-warning">Sorry, Search yielded no results.</div>
+    {{/if}}
+</div>

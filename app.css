@@ -1,0 +1,59 @@
+#bug_link {
+    font-size: 80%;
+    padding-top: 10px;
+}
+
+td.total {
+    padding-left: 5px;
+    text-align: right;
+    font-weight: bold;
+    color: #363;
+}
+
+footer.mjw-override {
+    border-left: none;
+}
+
+.mjw-error {
+    color: red;
+}
+
+.mjw-error .mjw-technical-details {
+    background-color: lightyellow;
+    overflow: scroll;
+}
+
+
+.mjw-affirmative { color: green;  }
+.mjw-negative    { color: red;    }
+
+.mjw-clearfix { overflow: auto; }
+
+.mjw-float-left  { display: block;  float: left;  }
+.mjw-float-right { display: block;  float: right; }
+
+.mjw-grouping .mjw-row {
+    padding-top: 2px;
+    padding-bottom: 5px;
+}
+.mjw-grouping .mjw-title,
+.mjw-grouping .mjw-sub-title {
+    background: #eeeeee;
+    padding-left: 5px;
+}
+.mjw-grouping .mjw-title {
+    font-size: 150%;
+    font-weight: 100;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.mjw-grouping .mjw-sub-title {
+    font-size: 125%;
+    margin-top: 10px;
+}
+
+.mjw-blue-emphasis {
+    color: blue;
+    font-weight: bold;
+}
+

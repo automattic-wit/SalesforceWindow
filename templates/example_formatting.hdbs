@@ -1,0 +1,29 @@
+<h4>Just testing custom Helpers for Handlebars.js</h4>
+<small>well you cannot use custom helpers... so now to figure out something else...</small>
+<hr />
+<div><strong>Should be: 10/4/2014 10:00 AM</strong></div>
+<div>
+    Neat Date: <span class="format-neat-date" data-date-string="{{centralDateString}}">formatting date...</span>
+</div>
+<div>
+    Neat Time: <span class="format-neat-time" data-date-string="{{centralDateString}}">formatting time...</span>
+</div>
+<hr />
+<div><strong>Should be: 9/15/2012 12:00 PM</strong></div>
+<div>
+    Neat Date: <span class="format-neat-date" data-date-string="{{pacificDateString}}">formatting date...</span>
+</div>
+<div>
+    Neat Time: <span class="format-neat-time" data-date-string="{{pacificDateString}}">formatting time...</span>
+</div>
+<hr />
+<div>
+    Checkbox: <i class="fa fa-thumbs-o-{{#if shouldNotCheck}}up affirmative{{else}}down negative{{/if}}"> Beta Customer</i>
+</div>
+<div>
+    Checkbox: <i class="fa fa-thumbs-o-{{#if shouldCheck}}up affirmative{{else}}down negative{{/if}}"> Fundraising Suite</i>
+</div>
+<hr />
+<div>
+    Count: <span class="badge">42</span> Total HDs
+</div>

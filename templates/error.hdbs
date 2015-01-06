@@ -1,0 +1,9 @@
+<div class="mjw-error">
+    <p>There was a problem accessing the data.</p>
+    <p>Please try again later</p>
+    <br />
+    <div>
+        <strong>TechnicalDetails: </strong>
+        <div class="mjw-technical-details">{{responseText}}</div>
+    </div>
+</div>

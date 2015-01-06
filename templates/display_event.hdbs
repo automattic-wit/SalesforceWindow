@@ -1,0 +1,148 @@
+<div>
+    {{#if ajaxResponse.totalSize}}
+        {{#each ajaxResponse.records}}
+            <div class="event-details">
+
+                <div class="mjw-grouping">
+                    <div class="mjw-row mjw-title mjw-blue-emphasis"><i class="fa fa-institution"></i> {{this.Organization_Name__r.Name}}</div>
+                    <div class="mjw-row mjw-clearfix">
+                        <div class="mjw-float-left" >{{this.Event_Code__c}}</div>
+                        <div class="mjw-float-right"> <span class="mjw-format-neat-date" data-date-string="{{this.Event_Date__c}}">formatting date...</span> </div>
+                    </div>
+                    <div class="mjw-row mjw-clearfix">
+                        <div class="mjw-float-left" >{{this.Time_Zone__c}} Time</div>
+                        <div class="mjw-float-right">{{#if this.Event_City__c}}{{this.Event_City__c}}{{else}}[No City Found]{{/if}}</div>
+                    </div>
+                    <div class="mjw-row mjw-clearfix">
+                        <div class="mjw-float-left" ><i class="fa mjw-format-set-icon" data-icon-associate="{{this.Event_Type__c}}"></i> {{this.Event_Type__c}}</div>
+                        <div class="mjw-float-right">{{this.Name}}</div>
+                    </div>
+                    <div class="mjw-row mjw-clearfix">
+                        <div class="mjw-float-left"><a target="_blank" href="http://bidpal.net/{{this.FriendlyURL__c}}">bidpal.net/<span class="mjw-blue-emphasis">{{this.FriendlyURL__c}}</span></a></div>
+                        <div class="mjw-float-right">{{this.Planner_Admin__r.Name}} <small>[Admin]</small></div>
+                    </div>
+                </div>
+
+
+                <div class="mjw-grouping">
+                    <div class="mjw-row mjw-sub-title"><i class="fa fa-money"></i> Finance</div>
+                    <div class="mjw-row"><small>[Accounts Payable]</small></div>
+                    <div class="mjw-row mjw-clearfix">
+                        <div class="mjw-float-left" ><i class="fa fa-user"></i> {{this.AP_Contact_First_Name__c}} {{this.AP_Contact_Last_Name__c}}</div>
+                        <div class="mjw-float-right">{{this.AP_Contact_Email__c}}</div>
+                    </div>
+                    <div class="mjw-row"><small>[iATS]</small></div>
+                    <div class="mjw-row mjw-clearfix">
+                        <div class="mjw-float-left" >
+                            Merchant Id:
+                            <span class="mjw-blue-emphasis">
+                                {{this.Merchant_ID__c}}
+                                {{#unless this.Merchant_ID__c}}[None]{{/unless}}
+                            </span>
+                        </div>
+                        <div class="mjw-float-right">{{this.iATS_Opportunity_Status__c}}</div>
+                    </div>
+                </div>
+
+
+                <div class="mjw-grouping">
+                    <div class="mjw-row mjw-sub-title"><i class="fa fa-shopping-cart"></i> BidPal Products</div>
+                    <div class="mjw-row mjw-clearfix">
+                        <div class="mjw-float-left" ><i class="fa fa-thumbs-{{#if this.Beta_Confirmed__c}}up mjw-affirmative{{else}}down mjw-negative{{/if}}"> Beta</i></div>
+                        <div class="mjw-float-right"><i class="fa fa-thumbs-{{#if this.myBidPal_Portal__c}}up mjw-affirmative{{else}}down mjw-negative{{/if}}"> Fundraising Suite</i></div>
+                    </div>
+                    <div class="mjw-row mjw-clearfix">
+                        <div class="mjw-float-left" ><i class="fa fa-thumbs-{{#if this.Payment_Processing_Y_N__c}}up mjw-affirmative{{else}}down mjw-negative{{/if}}"> Payment Processing</i></div>
+                        <div class="mjw-float-right">Server - <span class="mjw-blue-emphasis">{{this.BidBox_Name__c}}</span></div>
+                    </div>
+                    <div class="mjw-row mjw-clearfix">
+                        <div class="mjw-float-left" ><span class="badge">{{this.Planned_APs__c}}</span> APs</div>
+                        <div class="mjw-float-right"><span class="badge">{{this.Total_Connections__c}}</span> Connections</div>
+                    </div>
+                </div>
+
+
+                <div class="mjw-grouping">
+                    <div class="mjw-row mjw-sub-title"><i class="fa fa-clock-o"></i> Times</div>
+                    <!--@FUTURE---make sure to check for setup start time on a different day... -->
+                    <div class="mjw-row mjw-clearfix">
+                        <div class="mjw-float-left" >Setup Start Time</div>
+                        <div class="mjw-float-right"><span class="mjw-format-neat-time" data-date-string="{{this.Setup_Start_Time__c}}">formatting time...</span></div>
+                    </div>
+                    <div class="mjw-row mjw-clearfix">
+                        <div class="mjw-float-left" >Event Manager Start</div>
+                        <div class="mjw-float-right"><span class="mjw-format-neat-time" data-date-string="{{this.Event_Manager_start__c}}">formatting time...</span></div>
+                    </div>
+                    <div class="mjw-row mjw-clearfix">
+                        <div class="mjw-float-left" >Silent Auction</div>
+                        <div class="mjw-float-right">
+                            <span class="mjw-format-neat-time" data-date-string="{{this.Registration_Silent_auction_start__c}}">formatting time...</span>
+                            -
+                            <span class="mjw-format-neat-time" data-date-string="{{this.Silent_auction_end__c}}">formatting time...</span>
+                        </div>
+                    </div>
+                    <div class="mjw-row mjw-clearfix">
+                        <div class="mjw-float-left" >Donation End</div>
+                        <div class="mjw-float-right"><span class="mjw-format-neat-time" data-date-string="{{this.Donation_end__c}}">formatting time...</span></div>
+                    </div>
+                </div>
+
+
+                <div class="mjw-grouping">
+                    <div class="mjw-row mjw-sub-title"><i class="fa fa-building-o"></i> Venue</div>
+                    <div class="mjw-row">{{this.Venue_Name__c}}</div>
+                    <div class="mjw-row"><i class="fa fa-user"></i> {{#if this.Venue_Contact__c}}{{this.Venue_Contact__c}}{{else}}[No Contact Info Found]{{/if}}</div>
+                    <div class="mjw-row"><i class="fa fa-thumbs-{{#if this.Venue_Internet_Used__c}}up mjw-affirmative{{else}}down mjw-negative{{/if}}"> Venue Internet Used</i></div>
+                </div>
+
+
+                <div class="mjw-grouping">
+                    <div class="mjw-row mjw-sub-title"><i class="fa fa-users"></i> Staff</div>
+                    <div class="mjw-container-event-staff">
+                        Loading Staff Information
+                    </div>
+                </div>
+                
+
+                <div class="mjw-grouping">
+                    <div class="mjw-row mjw-sub-title"><i class="fa fa-cogs"></i> Planned Equipment</div>
+                    <div class="mjw-container-event-equipment">
+                        Loading Event Equipment List...
+                    </div>
+                </div>
+
+
+                <div class="mjw-grouping">
+                    <div class="mjw-row mjw-sub-title"><i class="fa fa-truck"></i> Logistics</div>
+                    <div class="mjw-row mjw-clearfix">
+                        <div class="mjw-float-left">Delivery Driver</div>
+                        <div class="mjw-float-right">{{#if this.Delivery_Driver__c}}{{this.Delivery_Driver__c}}{{else}}[No Info Found]{{/if}}</div>
+                    </div>
+                    <div class="mjw-row mjw-clearfix">
+                        <div class="mjw-float-left">Pickup Driver</div>
+                        <div class="mjw-float-right">{{#if this.Pickup_Driver__c}}{{this.Pickup_Driver__c}}{{else}}[No Info Found]{{/if}}</div>
+                    </div>
+                </div>
+                
+
+                <div class="mjw-grouping">
+                    <div class="mjw-row mjw-sub-title"><i class="fa fa-pencil"></i> Event Notes</div>
+                    <div class="mjw-row"><small>{{#if this.Setup_Notes__c}}{{this.Setup_Notes__c}}{{else}}[None Found]{{/if}}</small></div>
+                </div>
+
+
+                <hr />
+
+
+                <div class="mjw-grouping">
+                    <div class="mjw-row mjw-sub-title"><i class="fa fa-paperclip"></i> Attachments</div>
+                    <div class="mjw-row">Currently under devleopment</div>
+                </div>
+
+        
+            </div>
+        {{/each}}
+    {{else}}
+        <div class="alert alert-warning">Sorry, no events were found with that bpe.</div>
+    {{/if}}
+</div>

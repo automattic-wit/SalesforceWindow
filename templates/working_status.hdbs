@@ -1,0 +1,9 @@
+<div class="alert alert-{{#if context}}{{context}}{{else}}info{{/if}}">
+    {{message}}
+    {{#if technicalDetails}}
+        <br /><br />
+        <small>
+            <strong>Technical Details: </strong>[{{technicalDetails}}]
+        </small>
+    {{/if}}
+</div>

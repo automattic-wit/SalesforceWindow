@@ -1,0 +1,6 @@
+<h4>Just testing custom Helpers for Handlebars.js</h4>
+<small>well you cannot use custom helpers... so now to figure out something else...</small>
+<div>
+    <span class="format-neat-date" data-date-string="{{dateString}}">formatting date...</span>
+    <span class="format-neat-time" data-date-string="{{dateString}}">formatting time...</span>
+</div>

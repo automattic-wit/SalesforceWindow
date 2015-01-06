@@ -1,0 +1,10 @@
+<p>Related Information about this requester:</p>
+<br />
+<table>
+    <tr> <td>Submitted Tickets:     </td> <td class="total">{{user_related.requested_tickets}}</td> </tr>
+    <tr> <td>Ticket CC's:           </td> <td class="total">{{user_related.ccd_tickets}}      </td> </tr>
+    <tr> <td>Conributed Articles:   </td> <td class="total">{{user_related.topics}}           </td> </tr>
+    <tr> <td>Article Comments:      </td> <td class="total">{{user_related.topic_comments}}   </td> </tr>
+    <tr> <td>Content Votes:         </td> <td class="total">{{user_related.votes}}            </td> </tr>
+    <tr> <td>Content Subscriptions: </td> <td class="total">{{user_related.subscriptions}}    </td> </tr>
+</table>

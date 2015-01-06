@@ -1,0 +1,9 @@
+<header>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
+  <span class="logo"/>
+  <h3>{{setting "name"}}</h3>
+</header>
+<section data-main/>
+<footer class="mjw-override">
+  <a id="bug_link" href="mailto:{{author.email}}"> Report Bugs </a>
+</footer>

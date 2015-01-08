@@ -27,15 +27,10 @@
     
         accessSalesforce: function() {
             return {
-                url: 'https://login.salesforce.com/services/oauth2/token',
+                url: 'https://login.salesforce.com/services/oauth2/token?grant_type=refresh_token&client_id={{setting.consumer_key}}&client_secret={{setting.consumer_secret}}&refresh_token={{setting.refresh_token}}',
                 type: 'POST',
-                dataType: 'json',
-                data: {
-                    grant_type    : 'refresh_token',
-                    client_id     : this.KEY,
-                    client_secret : this.SECRET,
-                    refresh_token : this.TOKEN
-                }
+                contentType: 'application/x-www-form-urlencoded',
+                secure: true
             };
         },
         
@@ -213,12 +208,7 @@
 
     init: function() {
         // Set Settings Variables
-        //@FUTURE---REMOVE (most of) THESE, AND USE SECURE TEMPLATING
-        this.KEY          = this.setting('consumer_key');
-        this.SECRET       = this.setting('consumer_secret');
         this.BPE_FIELD_ID = this.setting('bpe_field_id');
-        this.TOKEN        = this.setting('refresh_token');
-
         
         // Start SF Auth process
         this.accessSalesforce({backgroundProcess: true});

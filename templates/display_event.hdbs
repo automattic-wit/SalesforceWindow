@@ -81,10 +81,6 @@
                             <span class="mjw-format-neat-time" data-date-string="{{this.Silent_auction_end__c}}">formatting time...</span>
                         </div>
                     </div>
-                    <div class="mjw-row mjw-clearfix">
-                        <div class="mjw-float-left" >Donation End</div>
-                        <div class="mjw-float-right"><span class="mjw-format-neat-time" data-date-string="{{this.Donation_end__c}}">formatting time...</span></div>
-                    </div>
                 </div>
 
 

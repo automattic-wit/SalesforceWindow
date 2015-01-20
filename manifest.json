@@ -34,6 +34,11 @@
         "name"     : "bpe_field_id",
         "type"     : "text",
         "required" : true
+    },
+    {
+        "name"     : "salesforce_fields",
+        "type"     : "multiline",
+        "required" : true
     }
   ]
 }

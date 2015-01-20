@@ -36,17 +36,8 @@
         
         getSFEvents: function(identifiers) {
             var query = '';
-            query += 'SELECT Id,Event_Code__c,Organization_Name__r.Name,Event_Date__c,Event_Type__c,FriendlyURL__c,Event_City__c,Time_Zone__c,Planner_Admin__r.Name,Name,';                                 // General
-            query +=        'Merchant_ID__c,iATS_Opportunity_Status__c,';     // iATS
-            query +=        'AP_Contact_Email__c,AP_Contact_First_Name__c,AP_Contact_Last_Name__c,';                                                                                          // AP Contact
-            query +=        'Beta_Confirmed__c,BidBox_Name__c,Total_Connections__c,Planned_APs__c,Payment_Processing_Y_N__c,myBidPal_Portal__c,';                                                           // BP Products
-            query +=        'Registration_Silent_auction_start__c,Silent_auction_end__c,Donation_end__c,Setup_Start_Time__c,Event_Manager_start__c,';                                                       // Times
-            query +=        'Venue_Name__c,Venue_Internet_Used__c,Venue_Contact__c,';   // Venue
-            query +=        'Delivery_Driver__c,Pickup_Driver__c,';                     // Logistics... may need to pull off of Event_Equipment__r
-            query +=        'Setup_Notes__c';                                           // Notes
-
+            query += 'SELECT ' + this.setting('salesforce_fields').replace(/\s/g,'');   // Remove whitespace from string in case it creaps in
             query += ' FROM Event__c ';
-
             query += ' WHERE ' + identifiers.fieldName;
 
             if(identifiers.fieldName == 'Organization_Name__r.Name')  query += ' LIKE \'%';
@@ -405,7 +396,7 @@
         this.switchTo('working_status', {context: 'info', message: (statusMsg  ?  statusMsg+'  '  :  '') + 'Attempting search by Organiztion Name...'});
 
         if(this.organization_name) {
-            if(this.organization_name.indexOf('BidPal') >= 0)
+            if(this.organization_name.toLowerCase().indexOf('bidpal') >= 0)
                 this.switchTo('working_status', {
                     context: 'warning',
                     message: 'Hey I noticed the requestor on this ticket is a BidPal Employee, change the requestor to a customer or enter the BPE, and refesh the application.',

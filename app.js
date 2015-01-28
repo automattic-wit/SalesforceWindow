@@ -139,9 +139,8 @@
             if(!dateString) 
                 element.html('[None Found]');
             else {
+                // There is no Storage Bias here because the dateString reads as "2014-10-16", and JavaScript natively assumes UTC when constructing a new Date instance.
                 var date = new Date(dateString);
-                // EST Storage Bias Offset = 4days * 60minutes * 60seconds * 1000milliseconds
-                date = new Date( date.getTime() - 4*60*60*1000 );
 
                 var month = date.getUTCMonth() + 1;    month = (month < 10  ?  '0' + month  :  month);
                 var day   = date.getUTCDate();         day   = (day   < 10  ?  '0' + day    :  day  );
@@ -170,7 +169,7 @@
 
                 var hour = date.getUTCHours();
                 var min  = date.getUTCMinutes();
-                var ampm = (hour > 12  ?  'PM'       :  'AM');
+                var ampm = (hour < 12  ?  'AM'       :  'PM');
                 hour     = (hour > 12  ?  hour - 12  :  hour);
                 min      = (min  > 0   ?  min        : '00');
 
